@@ -22,5 +22,20 @@ namespace Contact
             MessageBox.Show("Contact List 1.0\nWritten by: Marilia", "About");
 
         }
+
+        private void peopleBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.peopleBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.database1DataSet);
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'database1DataSet.People' table. You can move, or remove it, as needed.
+            this.peopleTableAdapter.Fill(this.database1DataSet.People);
+
+        }
     }
 }
